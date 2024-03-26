@@ -1,0 +1,1 @@
+The original features of IoTDevID were used. Therefore no feature selection was made
