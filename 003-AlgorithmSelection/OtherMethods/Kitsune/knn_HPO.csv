@@ -1,0 +1,11 @@
+algorithm,leaf_size,n_neighbors,weights,F1,Std,Time,No,Attack
+kd_tree,18,7,uniform,0.7540230879060459,0.0,195.1,0,HPO
+ball_tree,37,10,distance,0.7666187499299448,0.0,315.778,1,HPO
+kd_tree,3,10,distance,0.7666187499299448,0.0,238.898,2,HPO
+kd_tree,42,7,uniform,0.7540230879060459,0.0,194.814,3,HPO
+auto,25,2,distance,0.7890420546823635,0.0,179.655,4,HPO
+ball_tree,44,2,distance,0.7890725572893894,0.0,337.454,5,HPO
+kd_tree,38,7,distance,0.7740959010604461,0.0,216.53,6,HPO
+kd_tree,32,5,uniform,0.7656257145967935,0.0,217.048,7,HPO
+ball_tree,5,7,distance,0.7740959010604461,0.0,201.761,8,HPO
+brute,44,43,distance,0.7230061845038238,0.0,169.616,9,HPO
