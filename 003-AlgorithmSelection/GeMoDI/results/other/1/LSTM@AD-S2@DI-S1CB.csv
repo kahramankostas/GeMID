@@ -1,0 +1,25 @@
+,precision,recall,f1-score,support
+Amazon Echo,0.0,0.0,0.0,4565.0
+Awair air quality monitor,0.0,0.0,0.0,3550.0
+Belkin Wemo switch,0.0,0.0,0.0,4447.0
+Belkin wemo motion sensor,0.0,0.0,0.0,4623.0
+Dropcam,0.06108914679250096,1.0,0.11514423076923076,4790.0
+HP Printer,0.0,0.0,0.0,4295.0
+Light Bulbs LiFX Smart Bulb,0.0,0.0,0.0,3115.0
+MacBook,0.0,0.0,0.0,4870.0
+NEST Protect smoke alarm,0.0,0.0,0.0,213.0
+Netatmo Welcome,0.0,0.0,0.0,4221.0
+Netatmo weather station,0.0,0.0,0.0,3653.0
+PIX-STAR Photo-frame,0.0,0.0,0.0,3703.0
+Phillip Hue Lightbulb,0.0,0.0,0.0,4551.0
+Samsung Galaxy Tab,0.0,0.0,0.0,3791.0
+Samsung SmartCam,0.0,0.0,0.0,4634.0
+Smart Things,0.0,0.0,0.0,3663.0
+TP-Link Day Night Cloud camera,0.0,0.0,0.0,3418.0
+TP-Link Smart plug,0.0,0.0,0.0,2051.0
+TPLink Router Bridge LAN,0.0,0.0,0.0,4679.0
+Triby Speaker,0.0,0.0,0.0,2427.0
+iHome,0.0,0.0,0.0,3151.0
+accuracy,0.06108914679250096,0.06108914679250096,0.06108914679250096,0.06108914679250096
+macro avg,0.002909006990119093,0.047619047619047616,0.005483058608058608,78410.0
+weighted avg,0.00373188385583573,0.06108914679250096,0.007034062815771143,78410.0
