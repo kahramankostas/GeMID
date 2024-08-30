@@ -89,7 +89,7 @@ We used a wrapper method, specifically a Genetic Algorithm (GA), to explore feat
 To mitigate this, we combined all 46 features that passed individual voting into a single feature set for GA selection. A decision tree (DT) model evaluated the features, with fitness assessed by the F1 score across eight additional DD datasets, providing external validation and feedback to the GA. This ensured the selected features performed well across multiple datasets, not just the one used for selection. The GA identified separate successful feature sets for each DD case, even when starting with the same input set. In total, eight distinct feature sets were proposed by the GA, and we analyzed the intersections among them. Some features, such as tcp.window size and tcp.ack, were selected multiple times, while others, like tcp.seq and tcp.flags.ack, were chosen only once (see Fig. 7 and [GeneticAlgorithm.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/002-FeatureSelection/GeMoDI/002-GeneticAlgorithm.ipynb))
 
 
-   <img src="./imgs/grf2.png" alt="drawing" width="400"/>\
+   <img src="./imgs/grf2.png" alt="drawing" width="600"/>\
    *Fig. 7 List of intersecting features identified across eight dataset versus dataset (DD) cases using Genetic Algorithm (GA).*
 
 In the next step, the performance of the features selected by the GA and the intersecting features shown in Fig 6 are compared (see [PrimaryTest-of-Featuresets.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/002-FeatureSelection/GeMoDI/003-PrimaryTest-of-Featuresets.ipynb)). DD datasets and DT are used for this evaluation. The results of the evaluation are shown in Fig. 8.
