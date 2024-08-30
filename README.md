@@ -90,12 +90,30 @@ To mitigate this, we combined all 46 features that passed individual voting into
 
 
    <img src="./imgs/grf2.png" alt="drawing" width="400"/>\
-   *Fig. 6 List of intersecting features identified across eight dataset versus dataset (DD) cases using Genetic Algorithm (GA).*
+   *Fig. 7 List of intersecting features identified across eight dataset versus dataset (DD) cases using Genetic Algorithm (GA).*
 
+In the next step, the performance of the features selected by the GA and the intersecting features shown in Fig 6 are compared (see [PrimaryTest-of-Featuresets.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/002-FeatureSelection/GeMoDI/003-PrimaryTest-of-Featuresets.ipynb)). DD datasets and DT are used for this evaluation. The results of the evaluation are shown in Fig. 8.
 
-
-
+   <img src="./imgs/cm.png" alt="drawing" width="600"/>\
+   *Fig. 7 Comparison of feature set performance across dataset versus dataset (DD) cases. The left side of the heatmap displays the results of applying feature sets obtained from the first step of the Genetic Algorithm (GA) to all DD data, yielding 64 results. On the right, the performance of the features grouped according to their frequency, focusing on the intersection of features obtained from the output of the GA algorithm.*
  
+
+## 003-Model Selection
+ There is no one-size-fits-all solution in ML. Therefore, we experimented with various ML approaches to identify the most effective one for our method. Specifically, we tested methods commonly used in DI. The methods evaluated include Logistic Regression (LR), Decision Trees (DT), Naive Bayes (NB), Support Vector Machines (SVM), Random Forest (RF), Artificial Neural Networks (ANN), K-Nearest Neighbors (KNN), Convolutional Neural Networks (CNN), and Long Short-Term Memory (LSTM) (see [AlgorithmSelection.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/003-AlgorithmSelection/GeMoDI/003-AlgorithmSelection.ipynb) and Fig. 8).
+
+
+   <img src="./imgs/cmML.png" alt="drawing" width="400"/>\
+   *Fig. 8 F1 scores and average inference times of various ML algorithms applied to DD datasets. The Random Forest (RF) and XGB methods demonstrate the highest F1 scores of 0.799 and 0.780, respectively, while Decision Trees (DT) show the fastest inference time. Other algorithms, with F1 scores below 0.65, are not considered functional.*
+
+## 004-Final Evaluation With MonIoTr
+
+In this section, we test the generalizability of the selected features and algorithms using the MonIoTr dataset, which contains data collected from sites in two different countries using different devices. This test will also provide insights into the generalizability of alternative methods. We test the generalizability of our method and other methods using the MonIoTr dataset. Specifically, we utilized the US, US-VPN, UK, and UK-VPN sessions of the MonIoTr dataset. To better demonstrate generalization, we tested these datasets in CV, SS, and DD cases. In CV, we used each session individually. In SS, we used each country both normally and with VPN, In DD, we used data collected from different country sites as training and test data. The results of the approaches are shown in Table I. (see [ClassificationWithRF.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/004-FinalEvaluationWithMonIoTr/GeMoDI/003-ClassificationWithRF%20.ipynb))
+
+
+  <img src="./imgs/table.png" alt="drawing" width="400"/>\
+  *Application of GeMoDI, CICFlowmeter, IoTDevID, kitsune methods in different ways to MonIoTr dataset.*
+   
+
 # License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
