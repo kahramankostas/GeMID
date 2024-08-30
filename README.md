@@ -72,29 +72,29 @@ After feature extraction, the generalizability of each feature was evaluated usi
 
 A voting system was used where non-zero kappa values indicated the positive contribution of a feature. Features that received four or more votes from the SS (red) or DD (green) categories, including at least one DD vote, advanced to the next stage. As DD and SS provide stricter generalizability assessments, features that did not meet this criterion were eliminated. Although CV was used to evaluate features, its votes were excluded from the final selection due to potential information leakage. As a result, 46 out of 339 features were individually identified as predictors (see Fig 5).
 
-   <img src="./imgs/cizgi.png" alt="drawing" width="500"/>\
+   <img src="./imgs/cizgi.png" alt="drawing" width="800"/>\
    *Fig. 4 Comparison of kappa scores for various features in UNSW datasets using CV and isolated methods (SS and DD). The CV method tends to overestimate feature utility, showing higher scores for many attributes, while SS and DD produce more realistic evaluations. This discrepancy highlights the potential for information leakage in cross-validation and the importance of using isolated validation methods for assessing feature utility in ML-based DI models.*
 
 
-   <img src="./imgs/vote.png" alt="drawing" width="600"/>\
+   <img src="./imgs/vote.png" alt="drawing" width="800"/>\
    *Fig. 5 A voting system that gives one vote to each feature with a kappa value different from 0 that is individually predictive within CV, SS & DD.*
 
 
 We used a wrapper method, specifically a Genetic Algorithm (GA), to explore feature interactions and identify optimal feature combinations. The GA’s global search capabilities allow for effective solutions within a reasonable timeframe. However, although it does not guarantee finding the optimal subset and it can include potentially non-functional features. Additionally, GA-selected features may become biased towards the training data, reducing their generalizability to other datasets.
 
-   <img src="./imgs/ga.png" alt="drawing" width="400"/>\
+   <img src="./imgs/ga.png" alt="drawing" width="800"/>\
    *Fig. 6 A Visualisation of feature selection with Genetic Algorithm. The GA outputs the best feature set from n generations with the feedback it receives from the validation dataset*
 
 
 To mitigate this, we combined all 46 features that passed individual voting into a single feature set for GA selection. A decision tree (DT) model evaluated the features, with fitness assessed by the F1 score across eight additional DD datasets, providing external validation and feedback to the GA. This ensured the selected features performed well across multiple datasets, not just the one used for selection. The GA identified separate successful feature sets for each DD case, even when starting with the same input set. In total, eight distinct feature sets were proposed by the GA, and we analyzed the intersections among them. Some features, such as tcp.window size and tcp.ack, were selected multiple times, while others, like tcp.seq and tcp.flags.ack, were chosen only once (see Fig. 7 and [GeneticAlgorithm.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/002-FeatureSelection/GeMoDI/002-GeneticAlgorithm.ipynb))
 
 
-   <img src="./imgs/grf2.png" alt="drawing" width="600"/>\
+   <img src="./imgs/grf2.png" alt="drawing" width="800"/>\
    *Fig. 7 List of intersecting features identified across eight dataset versus dataset (DD) cases using Genetic Algorithm (GA).*
 
 In the next step, the performance of the features selected by the GA and the intersecting features shown in Fig 6 are compared (see [PrimaryTest-of-Featuresets.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/002-FeatureSelection/GeMoDI/003-PrimaryTest-of-Featuresets.ipynb)). DD datasets and DT are used for this evaluation. The results of the evaluation are shown in Fig. 8.
 
-   <img src="./imgs/cm.png" alt="drawing" width="600"/>\
+   <img src="./imgs/cm.png" alt="drawing" width="800"/>\
    *Fig. 7 Comparison of feature set performance across dataset versus dataset (DD) cases. The left side of the heatmap displays the results of applying feature sets obtained from the first step of the Genetic Algorithm (GA) to all DD data, yielding 64 results. On the right, the performance of the features grouped according to their frequency, focusing on the intersection of features obtained from the output of the GA algorithm.*
  
 
@@ -102,7 +102,7 @@ In the next step, the performance of the features selected by the GA and the int
  There is no one-size-fits-all solution in ML. Therefore, we experimented with various ML approaches to identify the most effective one for our method. Specifically, we tested methods commonly used in DI. The methods evaluated include Logistic Regression (LR), Decision Trees (DT), Naive Bayes (NB), Support Vector Machines (SVM), Random Forest (RF), Artificial Neural Networks (ANN), K-Nearest Neighbors (KNN), Convolutional Neural Networks (CNN), and Long Short-Term Memory (LSTM) (see [AlgorithmSelection.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/003-AlgorithmSelection/GeMoDI/003-AlgorithmSelection.ipynb) and Fig. 8).
 
 
-   <img src="./imgs/cmML.png" alt="drawing" width="400"/>\
+   <img src="./imgs/cmML.png" alt="drawing" width="800"/>\
    *Fig. 8 F1 scores and average inference times of various ML algorithms applied to DD datasets. The Random Forest (RF) and XGB methods demonstrate the highest F1 scores of 0.799 and 0.780, respectively, while Decision Trees (DT) show the fastest inference time. Other algorithms, with F1 scores below 0.65, are not considered functional.*
 
 ## 004-Final Evaluation With MonIoTr
@@ -110,7 +110,7 @@ In the next step, the performance of the features selected by the GA and the int
 In this section, we test the generalizability of the selected features and algorithms using the MonIoTr dataset, which contains data collected from sites in two different countries using different devices. This test will also provide insights into the generalizability of alternative methods. We test the generalizability of our method and other methods using the MonIoTr dataset. Specifically, we utilized the US, US-VPN, UK, and UK-VPN sessions of the MonIoTr dataset. To better demonstrate generalization, we tested these datasets in CV, SS, and DD cases. In CV, we used each session individually. In SS, we used each country both normally and with VPN, In DD, we used data collected from different country sites as training and test data. The results of the approaches are shown in Table I. (see [ClassificationWithRF.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/004-FinalEvaluationWithMonIoTr/GeMoDI/003-ClassificationWithRF%20.ipynb))
 
 
-  <img src="./imgs/table.png" alt="drawing" width="400"/>\
+  <img src="./imgs/table.png" alt="drawing" width="800"/>\
   *Application of GeMoDI, CICFlowmeter, IoTDevID, kitsune methods in different ways to MonIoTr dataset.*
    
 
