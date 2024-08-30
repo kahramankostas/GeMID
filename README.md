@@ -95,66 +95,6 @@ To mitigate this, we combined all 46 features that passed individual voting into
 
 
 
-### IoT-NID Dataset Preparation
-
-   - The original IoT-NID dataset does not include labels but provides rules for creating them (see the rules in `IoT_NID-dataset_description.csv`).
-   - Use the `010-IoT-NID_Label_Creator.ipynb` notebook to generate labels based on these rules.
-
-
-### Kitsune Dataset Preparation
-
-- The Kitsune dataset comes with pre-existing label files.
-- Ensure that these files are named correctly and that the column containing the labels is named "Label".
-
-
-### Feature Extraction and Labeling:
-   - The `011-Features_Extraction.ipynb` notebook generates CSV files from raw network files (pcaps) for use in ML operations.
-   - During feature extraction, if a CSV file with the same name as the pcap file exists in the same directory, the notebook will also perform the labeling process using this CSV file.
-   - **Recommendation:** Create a folder containing both the pcap files and their corresponding label files, then run the `011-Features_Extraction.ipynb` notebook.
-
-By following these steps, you will prepare both the IoT-NID and Kitsune datasets for further analysis and machine learning operations.
-
-
-## Experiments
-
-Section **IV. EXPERIMENTAL CASE STUDIES** contains the experiments conducted in this study.
------------------------------
-### 020.IPF-Compare-CV-Isolated.ipynb:
-In Section **IV.A**, supported by Fig. 3, the discussion focuses on data leakage during the use of session-based features. To illustrate the cases with and without data leakage, experiments have been conducted in the following manner:
-
-1. **Isolated Sessions:**
-   - Experiments were performed on two isolated sessions to observe the effects of data leakage.
-
-2. **Cross-Validation with Merged Sessions:**
-   - Experiments were also carried out using cross-validation, which involved merging the two sessions.
-   - The merging of the files used in the cross-validation process was done using the `021.CSV_Merger.ipynb` notebook.
-
-
-   <img src="./imgs/f3.jpg" alt="drawing" width="1800"/>
-
-
-### 030.Create-Model-Trees.ipynb:
-In some of the isolated sessions in `Fig.3`, it is evident that some features perform quite well even though the session is isolated. To better understand this, the models with these specific cases are visualized as decision trees in `IV.A`, `fig.4`. 
-   <img src="./imgs/f4.jpg" alt="drawing" width="1800"/>
-
-### 040.IPF_histograms.ipynb
-Section `IV.B` mentions that there are many uniform packets at the time of the attack. This section includes `Fig. 6`, which supports this data. Histograms of the data that form the basis for these graphs are created in this file.
-
-   <img src="./imgs/f6.jpg" alt="drawing" width="1800"/>
-
-
-### 050.IPF-Complexity.ipynb
-In Section `IV.B`, `Fig. 7` shows that some attacks have very low complexity in terms of certain characteristics, as demonstrated by a complexity analysis graph. This file generates these graphs.
-   <img src="./imgs/f7.jpg" alt="drawing" width="1800"/>
-
-### 060.IPF-Final-evaluation.ipynb
-`Table III` in Section `IV` presents the final experimental results. In this table, score comparisons are made between CV and isolated files. These comparisons also consider similar and dissimilar sessions for the same attack within the same dataset. This file generates these table scores.
-   <img src="./imgs/t3.jpg" alt="drawing" width="1800"/>
-
-### 061.IPF-All-attacks-complexity-vs-FScore
-The last paragraph of Section `IV` discusses the impact of complexity on success and presents `Fig. 8` to support this. This graph is generated using this file.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./imgs/f8.jpg" alt="drawing" width="400"/>
  
 # License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
