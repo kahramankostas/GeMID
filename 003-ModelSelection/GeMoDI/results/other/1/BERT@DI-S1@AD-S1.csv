@@ -1,2 +1,2 @@
 Dataset,T,CV,ML,Acc,b_Acc,Prec,Rec,F1,kap,ROC,tra-T,test-T,Al-Time
-DI-S1-AD-S1,0,1,BERT,0.5412,nan,nan,nan,0.5125,nan,nan,4904,348,0
+DI-S1-AD-S1,0,1,BERT,0.6425,nan,nan,nan,0.6452,nan,nan,13841.40567,255.4717791,0

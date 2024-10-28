@@ -1,0 +1,65 @@
+Train: ./small/AD-S1.csv Test: ./small/DI-S1.csv
+Epoch [1/3], Loss: 0.7825
+Epoch [2/3], Loss: 0.4576
+Epoch [3/3], Loss: 0.3910
+Training Time: 8368.60 seconds
+Testing Time: 8518.15 seconds
+Macro F1-Score: 0.6019
+Test Accuracy: 63.84%
+Train: ./small/DI-S1.csv Test: ./small/AD-S1.csv
+Epoch [1/3], Loss: 0.7968
+Epoch [2/3], Loss: 0.4797
+Epoch [3/3], Loss: 0.4168
+Training Time: 4828.51 seconds
+Testing Time: 4991.22 seconds
+Macro F1-Score: 0.5554
+Test Accuracy: 57.96%
+Train: ./small/AD-S1.csv Test: ./small/DI-S2.csv
+Epoch [1/3], Loss: 0.7897
+Epoch [2/3], Loss: 0.4602
+Epoch [3/3], Loss: 0.3970
+Training Time: 5032.40 seconds
+Testing Time: 5217.84 seconds
+Macro F1-Score: 0.5255
+Test Accuracy: 54.81%
+Train: ./small/DI-S2.csv Test: ./small/AD-S1.csv
+Epoch [1/3], Loss: 0.8429
+Epoch [2/3], Loss: 0.5396
+Epoch [3/3], Loss: 0.4586
+Training Time: 5851.68 seconds
+Testing Time: 6013.62 seconds
+Macro F1-Score: 0.5603
+Test Accuracy: 60.07%
+Train: ./small/AD-S2.csv Test: ./small/DI-S2.csv
+Epoch [1/3], Loss: 0.7539
+Epoch [2/3], Loss: 0.4065
+Epoch [3/3], Loss: 0.3410
+Training Time: 4036.85 seconds
+Testing Time: 4225.90 seconds
+Macro F1-Score: 0.4782
+Test Accuracy: 52.18%
+Train: ./small/DI-S2.csv Test: ./small/AD-S2.csv
+Epoch [1/3], Loss: 0.8542
+Epoch [2/3], Loss: 0.5307
+Epoch [3/3], Loss: 0.4571
+Training Time: 7065.56 seconds
+Testing Time: 7303.14 seconds
+Macro F1-Score: 0.5663
+Test Accuracy: 59.54%
+Train: ./small/AD-S2.csv Test: ./small/DI-S1.csv
+Epoch [1/3], Loss: 0.7656
+Epoch [2/3], Loss: 0.4214
+Epoch [3/3], Loss: 0.3425
+Training Time: 6006.44 seconds
+Testing Time: 6154.52 seconds
+Macro F1-Score: 0.5289
+Test Accuracy: 57.22%
+Train: ./small/DI-S1.csv Test: ./small/AD-S2.csv
+Epoch [1/3], Loss: 0.8198
+Epoch [2/3], Loss: 0.4886
+Epoch [3/3], Loss: 0.4200
+Training Time: 4775.24 seconds
+Testing Time: 4879.74 seconds
+Macro F1-Score: 0.5748
+Test Accuracy: 60.45%
+Total Time Elapsed: 47330.01 seconds

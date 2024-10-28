@@ -1,0 +1,97 @@
+Train: ./small/AD-S1.csv Test: ./small/DI-S1.csv
+Epoch [1/7], Loss: 1.6163
+Epoch [2/7], Loss: 1.0036
+Epoch [3/7], Loss: 0.7766
+Epoch [4/7], Loss: 0.6590
+Epoch [5/7], Loss: 0.5703
+Epoch [6/7], Loss: 0.5076
+Epoch [7/7], Loss: 0.4638
+Training Time: 9187.44 seconds
+Testing Time: 9257.69 seconds
+Macro F1-Score: 0.5076
+Test Accuracy: 50.56%
+Train: ./small/DI-S1.csv Test: ./small/AD-S1.csv
+Epoch [1/7], Loss: 1.6738
+Epoch [2/7], Loss: 0.9697
+Epoch [3/7], Loss: 0.7325
+Epoch [4/7], Loss: 0.6233
+Epoch [5/7], Loss: 0.5356
+Epoch [6/7], Loss: 0.4823
+Epoch [7/7], Loss: 0.4490
+Training Time: 5868.32 seconds
+Testing Time: 5939.06 seconds
+Macro F1-Score: 0.4406
+Test Accuracy: 45.56%
+Train: ./small/AD-S1.csv Test: ./small/DI-S2.csv
+Epoch [1/7], Loss: 1.5601
+Epoch [2/7], Loss: 0.9975
+Epoch [3/7], Loss: 0.7842
+Epoch [4/7], Loss: 0.6549
+Epoch [5/7], Loss: 0.5661
+Epoch [6/7], Loss: 0.5009
+Epoch [7/7], Loss: 0.4567
+Training Time: 5888.11 seconds
+Testing Time: 5959.66 seconds
+Macro F1-Score: 0.4747
+Test Accuracy: 49.05%
+Train: ./small/DI-S2.csv Test: ./small/AD-S1.csv
+Epoch [1/7], Loss: 1.7410
+Epoch [2/7], Loss: 1.0125
+Epoch [3/7], Loss: 0.7942
+Epoch [4/7], Loss: 0.6859
+Epoch [5/7], Loss: 0.5982
+Epoch [6/7], Loss: 0.5418
+Epoch [7/7], Loss: 0.4891
+Training Time: 5723.77 seconds
+Testing Time: 5794.17 seconds
+Macro F1-Score: 0.4910
+Test Accuracy: 51.83%
+Train: ./small/AD-S2.csv Test: ./small/DI-S2.csv
+Epoch [1/7], Loss: 1.3115
+Epoch [2/7], Loss: 0.6816
+Epoch [3/7], Loss: 0.5012
+Epoch [4/7], Loss: 0.4050
+Epoch [5/7], Loss: 0.3629
+Epoch [6/7], Loss: 0.3144
+Epoch [7/7], Loss: 0.2765
+Training Time: 5288.32 seconds
+Testing Time: 5357.04 seconds
+Macro F1-Score: 0.5145
+Test Accuracy: 53.23%
+Train: ./small/DI-S2.csv Test: ./small/AD-S2.csv
+Epoch [1/7], Loss: 1.7049
+Epoch [2/7], Loss: 1.0105
+Epoch [3/7], Loss: 0.8066
+Epoch [4/7], Loss: 0.6790
+Epoch [5/7], Loss: 0.5972
+Epoch [6/7], Loss: 0.5396
+Epoch [7/7], Loss: 0.4985
+Training Time: 5917.67 seconds
+Testing Time: 5955.44 seconds
+Macro F1-Score: 0.5591
+Test Accuracy: 59.41%
+Train: ./small/AD-S2.csv Test: ./small/DI-S1.csv
+Epoch [1/7], Loss: 1.3319
+Epoch [2/7], Loss: 0.6582
+Epoch [3/7], Loss: 0.4730
+Epoch [4/7], Loss: 0.3874
+Epoch [5/7], Loss: 0.3304
+Epoch [6/7], Loss: 0.2801
+Epoch [7/7], Loss: 0.2623
+Training Time: 5168.08 seconds
+Testing Time: 5240.40 seconds
+Macro F1-Score: 0.5083
+Test Accuracy: 52.69%
+Train: ./small/DI-S1.csv Test: ./small/AD-S2.csv
+Epoch [1/7], Loss: 1.5866
+Epoch [2/7], Loss: 0.9026
+Epoch [3/7], Loss: 0.7078
+Epoch [4/7], Loss: 0.5965
+Epoch [5/7], Loss: 0.5122
+Epoch [6/7], Loss: 0.4709
+Epoch [7/7], Loss: 0.4316
+Training Time: 5372.67 seconds
+Testing Time: 5417.94 seconds
+Macro F1-Score: 0.5858
+Test Accuracy: 60.39%
+Total Time Elapsed: 48940.35 seconds

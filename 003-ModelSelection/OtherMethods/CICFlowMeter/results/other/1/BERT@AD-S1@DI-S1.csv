@@ -1,0 +1,2 @@
+Dataset,T,CV,ML,Acc,b_Acc,Prec,Rec,F1,kap,ROC,tra-T,test-T,Al-Time
+AD-S1@DI-S1,0,1,BERT,0.638,,,,0.6019,,,8368.6,8518.15,0
