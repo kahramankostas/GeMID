@@ -1,0 +1,12 @@
+numpy
+Kitsune
+tqdm
+zipfile 
+scapy
+pandas
+pickle
+scikit-learn
+tabulate
+pyximport
+seaborn 
+pandas
