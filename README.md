@@ -12,13 +12,23 @@ With the proliferation of Internet of Things (IoT) devices, ensuring their secur
 
 Wireshark and Python 3.10 were used to create the application files. Before running the files, it must be ensured that [Wireshark](https://www.wireshark.org/), [Python 3.10+](https://www.python.org/downloads/) and the following libraries are installed.
 
-| Library | Task |
-| ------ | ------ |
-|[ Sklearn ](http://scikit-learn.org/stable/install.html)| Machine Learning & Data Preparation |
-| [ Numpy ](http://www.numpy.org/) |Mathematical Operations|
-| [ Pandas  ](https://pandas.pydata.org/pandas-docs/stable/install.html)|  Data Analysis|
-| [ Matplotlib ](https://matplotlib.org/users/installing.html) |Graphics and Visuality|
-| [Seaborn ](https://seaborn.pydata.org/) |Graphics and Visuality|
+
+| Library       | Task                                                             |
+|---------------|-------------------------------------------------------------------------|
+| numpy         | Fundamental package for numerical computing in Python.                  |
+| tqdm          | Library for adding progress bars to Python code.                        |
+| zipfile       | Module to read and write ZIP files (standard library).                  |
+| scapy         | Library for packet manipulation and network analysis.                   |
+| pandas        | Data manipulation and analysis tool for structured data.                |
+| pickle        | Module for serializing and de-serializing Python objects.               |
+| scikit-learn  | Machine learning library for Python.                                   |
+| tabulate      | Library for creating nicely formatted tables in Python.                 |
+| pyximport     | Module for importing Python modules written in C/C++.                   |
+| seaborn       | Statistical data visualization library based on Matplotlib.             |
+| transformers  | Library for natural language processing with pre-trained models.        |
+| torch         | Deep learning framework providing GPU acceleration.                     |
+| keras_tuner   | Library for hyperparameter tuning in Keras models.                      |
+| tensorflow    | End-to-end open-source platform for machine learning.                  |
 
 
 
