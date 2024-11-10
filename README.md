@@ -1,7 +1,7 @@
-# GeMoDI: Generalizable Models for Device Identification in IoT Networks.
+# GeMID: Generalizable Models for Device Identification in IoT Networks.
 
 # Overview
-In this repository you will find a Python implementation of the methods in the paper [GeMoDI: Generalizable Models for Device Identification in IoT Networks]()
+In this repository you will find a Python implementation of the methods in the paper [GeMID: Generalizable Models for Device Identification in IoT Networks]()
 
 # Abstract
 
@@ -44,7 +44,7 @@ The datasets we used in our study are listed below.
 
 # Methodology
 
-GeMoDI introduces a novel framework for evaluating the generalizability of DI models across diverse network environments. Our approach leverages a two-step process:
+GeMID introduces a novel framework for evaluating the generalizability of DI models across diverse network environments. Our approach leverages a two-step process:
 
 * **Feature and Algorithm Selection:**  Using a genetic algorithm with external feedback, we select features and algorithms from datasets collected in distinct environments (UNSW-AD and UNSW-DI).  To do this we used the devices that intersect between these two datasets. Fig. 1 shows the list of these devices.
 
@@ -56,7 +56,7 @@ GeMoDI introduces a novel framework for evaluating the generalizability of DI mo
    <img src="./imgs/mon.jpg" alt="drawing" width="1800"/>*Fig.2 Devices represented in the MonIoTr dataset from both UK and USA sites, along with their intersection (grey).*
 
 
-* **Comparison of Alternative Methods:**  We empirically compare our package-based approach to alternative methods, demonstrating that models built on individual package features consistently outperform those based on streaming or window-based statistical methods in terms of generalizability. To ensure fairness, we apply the same feature and algorithm selection processes for flow and window methods as we do for each step of GeMoDI. Additionally, we compare these methods to our packet header-based approach, GeMoDI, and IoTDevID—another packet header-based method chosen as a baseline due to its robustness, transparency, and demonstrated superiority over other approaches.
+* **Comparison of Alternative Methods:**  We empirically compare our package-based approach to alternative methods, demonstrating that models built on individual package features consistently outperform those based on streaming or window-based statistical methods in terms of generalizability. To ensure fairness, we apply the same feature and algorithm selection processes for flow and window methods as we do for each step of GeMID. Additionally, we compare these methods to our packet header-based approach, GeMID, and IoTDevID—another packet header-based method chosen as a baseline due to its robustness, transparency, and demonstrated superiority over other approaches.
 
 ## 001-Feature Extraction
 
@@ -68,7 +68,7 @@ A Python script and Wireshark are employed to extract features from `pcap`  file
 `18-10-16.pcap` + `18-06-11.pcap` -> `AD-Session-2` (AD-S2)
 
 
-We have used the python scripts given in the links to extract features in [GeMoDI](https://github.com/kahramankostas/GeMoDI/blob/main/001-FeatureExtraction/GeMoDI/GeMoDI-FE.ipynb), [Kitsune](https://github.com/kahramankostas/GeMoDI/blob/main/001-FeatureExtraction/OtherMethods/Kitsune/Kitsune-FE.ipynb), [IoTDevID](https://github.com/kahramankostas/GeMoDI/blob/main/001-FeatureExtraction/OtherMethods/IoTDevID/IoTDevID-Features_Extraction.ipynb), [CICFlowmeter](https://github.com/kahramankostas/GeMoDI/blob/main/001-FeatureExtraction/OtherMethods/CICFlowMeter/002-CICFlowMeter-FE.ipynb) methods.
+We have used the python scripts given in the links to extract features in [GeMID](https://github.com/kahramankostas/GeMID/blob/main/001-FeatureExtraction/GeMID/GeMID-FE.ipynb), [Kitsune](https://github.com/kahramankostas/GeMID/blob/main/001-FeatureExtraction/OtherMethods/Kitsune/Kitsune-FE.ipynb), [IoTDevID](https://github.com/kahramankostas/GeMID/blob/main/001-FeatureExtraction/OtherMethods/IoTDevID/IoTDevID-Features_Extraction.ipynb), [CICFlowmeter](https://github.com/kahramankostas/GeMID/blob/main/001-FeatureExtraction/OtherMethods/CICFlowMeter/002-CICFlowMeter-FE.ipynb) methods.
  
 We used four UNSW data partitions (AD-S1, AD-S2, DI-S1, DI-S2) for feature selection, assessing feature generalizability through three evaluation methods: 5-fold cross-validation (CV) within a partition, session versus session (SS) comparisons within the same dataset, and dataset versus dataset (DD) comparisons across different datasets. This process created 16 evaluation contexts (see Fig. 3).
 
@@ -78,7 +78,7 @@ We used four UNSW data partitions (AD-S1, AD-S2, DI-S1, DI-S2) for feature selec
 
 ## 002-Feature Selection
 
-After feature extraction, the generalizability of each feature was evaluated using decision tree (DT) models due to their speed and explainability, and performance was measured by the kappa metric, which adjusts for chance agreement. (See [FatureReduction.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/002-FeatureSelection/GeMoDI/001-FatureReduction.ipynb))
+After feature extraction, the generalizability of each feature was evaluated using decision tree (DT) models due to their speed and explainability, and performance was measured by the kappa metric, which adjusts for chance agreement. (See [FatureReduction.ipynb](https://github.com/kahramankostas/GeMID/blob/main/002-FeatureSelection/GeMID/001-FatureReduction.ipynb))
 
 A voting system was used where non-zero kappa values indicated the positive contribution of a feature. Features that received four or more votes from the SS (red) or DD (green) categories, including at least one DD vote, advanced to the next stage. As DD and SS provide stricter generalizability assessments, features that did not meet this criterion were eliminated. Although CV was used to evaluate features, its votes were excluded from the final selection due to potential information leakage. As a result, 46 out of 339 features were individually identified as predictors (see Fig 5).
 
@@ -96,20 +96,20 @@ We used a wrapper method, specifically a Genetic Algorithm (GA), to explore feat
    *Fig. 6 A Visualisation of feature selection with Genetic Algorithm. The GA outputs the best feature set from n generations with the feedback it receives from the validation dataset*
 
 
-To mitigate this, we combined all 46 features that passed individual voting into a single feature set for GA selection. A decision tree (DT) model evaluated the features, with fitness assessed by the F1 score across eight additional DD datasets, providing external validation and feedback to the GA. This ensured the selected features performed well across multiple datasets, not just the one used for selection. The GA identified separate successful feature sets for each DD case, even when starting with the same input set. In total, eight distinct feature sets were proposed by the GA, and we analyzed the intersections among them. Some features, such as tcp.window size and tcp.ack, were selected multiple times, while others, like tcp.seq and tcp.flags.ack, were chosen only once (see Fig. 7 and [GeneticAlgorithm.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/002-FeatureSelection/GeMoDI/002-GeneticAlgorithm.ipynb))
+To mitigate this, we combined all 46 features that passed individual voting into a single feature set for GA selection. A decision tree (DT) model evaluated the features, with fitness assessed by the F1 score across eight additional DD datasets, providing external validation and feedback to the GA. This ensured the selected features performed well across multiple datasets, not just the one used for selection. The GA identified separate successful feature sets for each DD case, even when starting with the same input set. In total, eight distinct feature sets were proposed by the GA, and we analyzed the intersections among them. Some features, such as tcp.window size and tcp.ack, were selected multiple times, while others, like tcp.seq and tcp.flags.ack, were chosen only once (see Fig. 7 and [GeneticAlgorithm.ipynb](https://github.com/kahramankostas/GeMID/blob/main/002-FeatureSelection/GeMID/002-GeneticAlgorithm.ipynb))
 
 
    <img src="./imgs/grf2.png" alt="drawing" width="800"/>\
    *Fig. 7 List of intersecting features identified across eight dataset versus dataset (DD) cases using Genetic Algorithm (GA).*
 
-In the next step, the performance of the features selected by the GA and the intersecting features shown in Fig 6 are compared (see [PrimaryTest-of-Featuresets.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/002-FeatureSelection/GeMoDI/003-PrimaryTest-of-Featuresets.ipynb)). DD datasets and DT are used for this evaluation. The results of the evaluation are shown in Fig. 8.
+In the next step, the performance of the features selected by the GA and the intersecting features shown in Fig 6 are compared (see [PrimaryTest-of-Featuresets.ipynb](https://github.com/kahramankostas/GeMID/blob/main/002-FeatureSelection/GeMID/003-PrimaryTest-of-Featuresets.ipynb)). DD datasets and DT are used for this evaluation. The results of the evaluation are shown in Fig. 8.
 
    <img src="./imgs/cm.png" alt="drawing" width="800"/>\
    *Fig. 7 Comparison of feature set performance across dataset versus dataset (DD) cases. The left side of the heatmap displays the results of applying feature sets obtained from the first step of the Genetic Algorithm (GA) to all DD data, yielding 64 results. On the right, the performance of the features grouped according to their frequency, focusing on the intersection of features obtained from the output of the GA algorithm.*
  
 
 ## 003-Model Selection
- There is no one-size-fits-all solution in ML. Therefore, we experimented with various ML approaches to identify the most effective one for our method. Specifically, we tested methods commonly used in DI. The methods evaluated include Logistic Regression (LR), Decision Trees (DT), Naive Bayes (NB), Support Vector Machines (SVM), Random Forest (RF), Artificial Neural Networks (ANN), K-Nearest Neighbors (KNN), Convolutional Neural Networks (CNN), and Long Short-Term Memory (LSTM) (see [AlgorithmSelection.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/003-AlgorithmSelection/GeMoDI/003-AlgorithmSelection.ipynb) and Fig. 8).
+ There is no one-size-fits-all solution in ML. Therefore, we experimented with various ML approaches to identify the most effective one for our method. Specifically, we tested methods commonly used in DI. The methods evaluated include Logistic Regression (LR), Decision Trees (DT), Naive Bayes (NB), Support Vector Machines (SVM), Random Forest (RF), Artificial Neural Networks (ANN), K-Nearest Neighbors (KNN), Convolutional Neural Networks (CNN), and Long Short-Term Memory (LSTM) (see [AlgorithmSelection.ipynb](https://github.com/kahramankostas/GeMID/blob/main/003-AlgorithmSelection/GeMID/003-AlgorithmSelection.ipynb) and Fig. 8).
 
 
    <img src="./imgs/cmML.png" alt="drawing" width="800"/>\
@@ -117,11 +117,11 @@ In the next step, the performance of the features selected by the GA and the int
 
 ## 004-Final Evaluation With MonIoTr
 
-In this section, we test the generalizability of the selected features and algorithms using the MonIoTr dataset, which contains data collected from sites in two different countries using different devices. This test will also provide insights into the generalizability of alternative methods. We test the generalizability of our method and other methods using the MonIoTr dataset. Specifically, we utilized the US, US-VPN, UK, and UK-VPN sessions of the MonIoTr dataset. To better demonstrate generalization, we tested these datasets in CV, SS, and DD cases. In CV, we used each session individually. In SS, we used each country both normally and with VPN, In DD, we used data collected from different country sites as training and test data. The results of the approaches are shown in Table I. (see [ClassificationWithRF.ipynb](https://github.com/kahramankostas/GeMoDI/blob/main/004-FinalEvaluationWithMonIoTr/GeMoDI/003-ClassificationWithRF%20.ipynb))
+In this section, we test the generalizability of the selected features and algorithms using the MonIoTr dataset, which contains data collected from sites in two different countries using different devices. This test will also provide insights into the generalizability of alternative methods. We test the generalizability of our method and other methods using the MonIoTr dataset. Specifically, we utilized the US, US-VPN, UK, and UK-VPN sessions of the MonIoTr dataset. To better demonstrate generalization, we tested these datasets in CV, SS, and DD cases. In CV, we used each session individually. In SS, we used each country both normally and with VPN, In DD, we used data collected from different country sites as training and test data. The results of the approaches are shown in Table I. (see [ClassificationWithRF.ipynb](https://github.com/kahramankostas/GeMID/blob/main/004-FinalEvaluationWithMonIoTr/GeMID/003-ClassificationWithRF%20.ipynb))
 
 
   <img src="./imgs/table.png" alt="drawing" width="800"/>\
-  *Application of GeMoDI, CICFlowmeter, IoTDevID, kitsune methods in different ways to MonIoTr dataset.*
+  *Application of GeMID, CICFlowmeter, IoTDevID, kitsune methods in different ways to MonIoTr dataset.*
    
 
 # License
@@ -135,8 +135,8 @@ If you use the source code please cite the following paper:
 
 
 ```
-@misc{kostas2024GeMoDI,
-      title={GeMoDI: Generalizable Models for Device Identification in IoT Networks.}, 
+@misc{kostas2024GeMID,
+      title={GeMID: Generalizable Models for Device Identification in IoT Networks.}, 
       author={Kahraman Kostas and Rabia Yasa Kostas and Mike Just and Michael A. Lones},
       year={2024},
       eprint={----},
