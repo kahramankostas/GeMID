@@ -139,7 +139,7 @@ If you use the source code please cite the following paper:
       title={GeMID: Generalizable Models for Device Identification in IoT Networks.}, 
       author={Kahraman Kostas and Rabia Yasa Kostas and Mike Just and Michael A. Lones},
       year={2024},
-      eprint={----},
+      eprint={2411.14441},
       archivePrefix={arXiv},
       primaryClass={cs.CR}
 }
