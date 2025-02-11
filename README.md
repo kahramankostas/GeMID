@@ -1,7 +1,7 @@
 # GeMID: Generalizable Models for Device Identification in IoT Networks.
 
 # Overview
-In this repository you will find a Python implementation of the methods in the paper [GeMID: Generalizable Models for Device Identification in IoT Networks]()
+In this repository you will find a Python implementation of the methods in the paper [GeMID: Generalizable Models for Device Identification in IoT Networks](https://arxiv.org/abs/2411.14441)
 
 # Abstract
 
